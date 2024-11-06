@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import LandingPage from './pages/LandingPage';
+import ExpenseTracker from './pages/ExpenseTracker';
+import CurrencyExchange from './pages/CurrencyExchange';
+import BillReminders from './pages/BillReminders';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<div className="app">
+				<Navbar />
+				<main className="main-content">
+					<Routes>
+						<Route path="/" element={<LandingPage />} />
+						<Route path="/expense-tracker" element={<ExpenseTracker />} />
+						<Route path="/currency-exchange" element={<CurrencyExchange />} />
+						<Route path="/bill-reminders" element={<BillReminders />} />
+					</Routes>
+				</main>
+				<Footer />
+			</div>
+		</Router>
+	);
 }
 
 export default App;
