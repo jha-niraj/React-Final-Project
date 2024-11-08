@@ -14,7 +14,7 @@ function LandingPage() {
                     <p className="animate-text-delay">Your all-in-one solution for expense tracking, currency exchange, and financial planning</p>
                     <button
                         className="cta-button"
-                        onClick={() => navigate('/expense-tracker')}
+                        onClick={() => navigate('/dashboard')}
                     >
                         Get Started
                     </button>

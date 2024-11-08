@@ -7,6 +7,7 @@ import ExpenseTracker from './pages/ExpenseTracker';
 import CurrencyExchange from './pages/CurrencyExchange';
 import BillReminders from './pages/BillReminders';
 import './App.css';
+import Dashboard from './pages/Dashboard';
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 				<main className="main-content">
 					<Routes>
 						<Route path="/" element={<LandingPage />} />
+						<Route path="/dashboard" element={<Dashboard />} />
 						<Route path="/expense-tracker" element={<ExpenseTracker />} />
 						<Route path="/currency-exchange" element={<CurrencyExchange />} />
 						<Route path="/bill-reminders" element={<BillReminders />} />

@@ -9,11 +9,13 @@ function CurrencyExchange() {
 
     // Mock exchange rates (in a real app, these would come from an API)
     const exchangeRates = {
-        USD: { EUR: 0.85, GBP: 0.73, JPY: 110.25, AUD: 1.35 },
-        EUR: { USD: 1.18, GBP: 0.86, JPY: 129.71, AUD: 1.59 },
-        GBP: { USD: 1.37, EUR: 1.16, JPY: 150.83, AUD: 1.85 },
-        JPY: { USD: 0.0091, EUR: 0.0077, GBP: 0.0066, AUD: 0.012 },
-        AUD: { USD: 0.74, EUR: 0.63, GBP: 0.54, JPY: 81.67 }
+        USD: { EUR: 0.85, GBP: 0.73, JPY: 110.25, AUD: 1.35, INR: 82.75, CAD: 1.25 },
+        EUR: { USD: 1.18, GBP: 0.86, JPY: 129.71, AUD: 1.59, INR: 97.5, CAD: 1.47 },
+        GBP: { USD: 1.37, EUR: 1.16, JPY: 150.83, AUD: 1.85, INR: 101.3, CAD: 1.71 },
+        JPY: { USD: 0.0091, EUR: 0.0077, GBP: 0.0066, AUD: 0.012, INR: 0.75, CAD: 0.011 },
+        AUD: { USD: 0.74, EUR: 0.63, GBP: 0.54, JPY: 81.67, INR: 55.5, CAD: 0.93 },
+        INR: { USD: 0.012, EUR: 0.010, GBP: 0.0099, JPY: 1.34, AUD: 0.018, CAD: 0.015 },
+        CAD: { USD: 0.80, EUR: 0.68, GBP: 0.59, JPY: 87.0, AUD: 1.07, INR: 60.0 }
     };
 
     const currencies = Object.keys(exchangeRates);
@@ -32,8 +34,9 @@ function CurrencyExchange() {
     return (
         <div className="currency-exchange">
             <div className="exchange-container">
-                <h1>Currency Exchange</h1>
+                {/* Conversion Form */}
                 <div className="exchange-card">
+                    <h1>Currency Exchange</h1>
                     <form onSubmit={handleConvert}>
                         <div className="form-group">
                             <label>Amount</label>
@@ -83,42 +86,39 @@ function CurrencyExchange() {
 
                         <button type="submit" className="convert-btn">Convert</button>
                     </form>
-
-                    {result !== null && (
-                        <div className="result">
-                            <h2>Result</h2>
-                            <div className="conversion-result">
-                                <p>
-                                    {parseFloat(amount).toFixed(2)} {fromCurrency} =
-                                </p>
-                                <p className="converted-amount">
-                                    {result.toFixed(2)} {toCurrency}
-                                </p>
-                            </div>
-                            <p className="rate-info">
-                                1 {fromCurrency} = {exchangeRates[fromCurrency][toCurrency].toFixed(4)} {toCurrency}
-                            </p>
-                        </div>
-                    )}
                 </div>
-
-                <div className="exchange-rates">
-                    <h2>Current Exchange Rates</h2>
-                    <div className="rates-grid">
-                        {currencies.map(from => (
-                            <div key={from} className="rate-card">
-                                <h3>{from}</h3>
-                                <div className="rate-list">
-                                    {currencies.filter(to => to !== from).map(to => (
-                                        <div key={`${from}-${to}`} className="rate-item">
-                                            <span>{to}:</span>
-                                            <span>{exchangeRates[from][to].toFixed(4)}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
+                {/* Result Section */}
+                {result !== null && (
+                    <div className="result">
+                        <h2>Result</h2>
+                        <div className="conversion-result">
+                            <p>{parseFloat(amount).toFixed(2)} {fromCurrency} =</p>
+                            <p className="converted-amount">{result.toFixed(2)} {toCurrency}</p>
+                        </div>
+                        <p className="rate-info">
+                            1 {fromCurrency} = {exchangeRates[fromCurrency][toCurrency].toFixed(4)} {toCurrency}
+                        </p>
                     </div>
+                )}
+            </div>
+
+            {/* Exchange Rates Section */}
+            <div className="exchange-rates">
+                <h2>Current Exchange Rates</h2>
+                <div className="rates-grid">
+                    {currencies.map(from => (
+                        <div key={from} className="rate-card">
+                            <h3>{from}</h3>
+                            <div className="rate-list">
+                                {currencies.filter(to => to !== from).map(to => (
+                                    <div key={`${from}-${to}`} className="rate-item">
+                                        <span>{to}:</span>
+                                        <span>{exchangeRates[from][to].toFixed(4)}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
