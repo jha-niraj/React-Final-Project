@@ -3,6 +3,7 @@ import './styles.css';
 
 const AnswerDisplay = ({ answer, isLoading }) => {
     if (!answer && !isLoading) return null;
+    console.log(answer);
 
     return (
         <div className="answer-container">
