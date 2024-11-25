@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/LandingPage.css';
+import FinancialQA from './FinancialQA/index';
+import "../styles/LandingPage.css"
 
 function LandingPage() {
     const navigate = useNavigate();
@@ -10,27 +11,43 @@ function LandingPage() {
             {/* Hero Section */}
             <section className="hero-section">
                 <div className="hero-content">
-                    <h1 className="animate-text">Smart Financial Management</h1>
-                    <p className="animate-text-delay">Your all-in-one solution for expense tracking, currency exchange, and financial planning</p>
-                    <button
-                        className="cta-button"
-                        onClick={() => navigate('/dashboard')}
-                    >
-                        Get Started
-                    </button>
-                </div>
-                <div className="hero-stats">
-                    <div className="stat-item">
-                        <span className="stat-number">10K+</span>
-                        <span className="stat-label">Active Users</span>
+                    <div className="hero-grid">
+                        {/* Left side - Hero Content */}
+                        <div className="hero-left">
+                            <h1 className="animate-text">
+                                Smart Financial Management
+                            </h1>
+                            <p className="animate-text-delay">
+                                Your all-in-one solution for expense tracking, currency exchange, and financial planning
+                            </p>
+                            <button
+                                className="cta-button"
+                                onClick={() => navigate('/dashboard')}
+                            >
+                                Get Started
+                            </button>
+                        </div>
+
+                        {/* Right side - Financial QA */}
+                        <div className="financial-qa-wrapper">
+                            <FinancialQA />
+                        </div>
                     </div>
-                    <div className="stat-item">
-                        <span className="stat-number">150+</span>
-                        <span className="stat-label">Countries</span>
-                    </div>
-                    <div className="stat-item">
-                        <span className="stat-number">$1M+</span>
-                        <span className="stat-label">Tracked Monthly</span>
+
+                    {/* Stats Section */}
+                    <div className="hero-stats">
+                        <div className="stat-item">
+                            <span className="stat-number">10K+</span>
+                            <span className="stat-label">Active Users</span>
+                        </div>
+                        <div className="stat-item">
+                            <span className="stat-number">150+</span>
+                            <span className="stat-label">Countries</span>
+                        </div>
+                        <div className="stat-item">
+                            <span className="stat-number">$1M+</span>
+                            <span className="stat-label">Tracked Monthly</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -75,7 +92,10 @@ function LandingPage() {
                                 <li>Budget planning tools</li>
                                 <li>Custom reports and exports</li>
                             </ul>
-                            <button onClick={() => navigate('/expense-tracker')} className="service-btn">
+                            <button
+                                onClick={() => navigate('/expense-tracker')}
+                                className="service-btn"
+                            >
                                 Try Expense Tracker
                             </button>
                         </div>
@@ -90,7 +110,10 @@ function LandingPage() {
                                 <li>Multi-currency support</li>
                                 <li>Historical rate charts</li>
                             </ul>
-                            <button onClick={() => navigate('/currency-exchange')} className="service-btn">
+                            <button
+                                onClick={() => navigate('/currency-exchange')}
+                                className="service-btn"
+                            >
                                 Try Currency Exchange
                             </button>
                         </div>
@@ -105,7 +128,10 @@ function LandingPage() {
                                 <li>Email notifications</li>
                                 <li>Recurring bill tracking</li>
                             </ul>
-                            <button onClick={() => navigate('/bill-reminders')} className="service-btn">
+                            <button
+                                onClick={() => navigate('/bill-reminders')}
+                                className="service-btn"
+                            >
                                 Try Bill Reminders
                             </button>
                         </div>
@@ -144,7 +170,7 @@ function LandingPage() {
                         <div className="testimonial-rating">★★★★★</div>
                         <p>"The best financial management platform I've ever used. The currency exchange feature is a game-changer!"</p>
                         <div className="testimonial-author">
-                            <img src="https://i.pravatar.cc/150?img=1" alt="Sarah J." className="author-image" />
+                            <img src="/placeholder-avatar-1.jpg" alt="Sarah J." className="author-image" />
                             <div className="author-details">
                                 <h4>Sarah Johnson</h4>
                                 <p>Digital Nomad</p>
@@ -155,7 +181,7 @@ function LandingPage() {
                         <div className="testimonial-rating">★★★★★</div>
                         <p>"Finally got my finances under control. The expense tracking and budgeting tools are exceptional."</p>
                         <div className="testimonial-author">
-                            <img src="https://i.pravatar.cc/150?img=2" alt="Mike R." className="author-image" />
+                            <img src="/placeholder-avatar-2.jpg" alt="Mike R." className="author-image" />
                             <div className="author-details">
                                 <h4>Mike Rodriguez</h4>
                                 <p>Small Business Owner</p>
@@ -166,7 +192,7 @@ function LandingPage() {
                         <div className="testimonial-rating">★★★★★</div>
                         <p>"The bill reminder feature has saved me from late payments multiple times. Highly recommended!"</p>
                         <div className="testimonial-author">
-                            <img src="https://i.pravatar.cc/150?img=3" alt="Lisa M." className="author-image" />
+                            <img src="/placeholder-avatar-3.jpg" alt="Lisa M." className="author-image" />
                             <div className="author-details">
                                 <h4>Lisa Martinez</h4>
                                 <p>Financial Advisor</p>

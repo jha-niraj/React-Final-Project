@@ -47,6 +47,164 @@
     opacity: 0.9;
 }
 
+Hero Grid Layout
+.hero-grid {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    /* Slightly less than 50% to account for gap */
+    gap: 5%;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Left Side - Hero Content */
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-left h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Responsive font size */
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-left p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+}
+
+/* Right Side - Financial QA */
+.financial-qa-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    height: fit-content;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .hero-grid {
+        padding: 1.5rem;
+        gap: 3rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        /* Stack on smaller screens */
+        max-width: 800px;
+        gap: 3rem;
+    }
+
+    .hero-left {
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-left p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hero-grid {
+        padding: 1rem;
+    }
+
+    .financial-qa-wrapper {
+        padding: 1.25rem;
+        min-height: 350px;
+    }
+}
+
+/* Animation Classes */
+.animate-text {
+    animation: fadeInUp 1s ease-out;
+}
+
+.animate-text-delay {
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Styles */
+.cta-button {
+    padding: 1rem 2.5rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    background-color: #f50057;
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(1px);
+}
+
+/* Optional: Add a gradient overlay to the background */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(26, 35, 126, 0.9),
+            rgba(13, 71, 161, 0.9));
+    z-index: 1;
+}
+
+/* Ensure content stays above gradient */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
 .hero-stats {
     display: flex;
     gap: 4rem;
